@@ -1,0 +1,12 @@
+Other things I have installed:
+- Docker
+- RDM
+- Alfred
+- Rescue Time
+- sublime
+- 1 password
+- backup and sync from google (gdrive)
+- notion
+- slack
+- pg admin 4
+- typora
