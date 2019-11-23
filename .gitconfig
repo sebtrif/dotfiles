@@ -1,0 +1,18 @@
+# This is Git's per-user configuration file.
+[core]
+# Please adapt and uncomment the following lines:
+#	user = Marius Sebastian Trif
+#	email = coolsebz@gmail.com
+[core]
+	editor = nvim
+	excludesfile = /Users/coolsebz/.gitignore_global
+[color]
+	ui = true
+[user]
+	name = Marius Sebastian Trif
+	email = coolsebz@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
