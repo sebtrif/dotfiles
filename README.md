@@ -10,3 +10,6 @@ There's a list of plugins I didn't get to a stable point so they're on my todo l
 ## Themes
 - monokai.terminal
 - osx-terminal.app-colors-solarized
+
+## Tmux
+- https://github.com/tmux-plugins/tpm
