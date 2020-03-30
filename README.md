@@ -1,5 +1,5 @@
 # dotfiles
-🔧a collection of configs for bash, vim and tmux
+🔧a collection of configs for bash, nvim and tmux
 
 ## What isn't there
 
