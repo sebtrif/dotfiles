@@ -203,6 +203,9 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
+
 " vim-js plugin config
 let g:javascript_plugin_jsdoc = 1
 
