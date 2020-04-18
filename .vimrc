@@ -41,25 +41,6 @@ Plugin 'fatih/vim-go'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'branch': 'release/1.x',
-  \ 'for': [
-    \ 'javascript',
-    \ 'typescript',
-    \ 'css',
-    \ 'less',
-    \ 'scss',
-    \ 'json',
-    \ 'graphql',
-    \ 'markdown',
-    \ 'vue',
-    \ 'lua',
-    \ 'php',
-    \ 'python',
-    \ 'ruby',
-    \ 'html',
-    \ 'swift' ] }
 
 " org and misc tools that it needs
 Plugin 'jceb/vim-orgmode'
@@ -212,12 +193,8 @@ let g:javascript_plugin_jsdoc = 1
 " vim-jsx
 let g:jsx_ext_required = 0
 
-" vim-prettier
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
 " neoclide/coc
-let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-css', 'coc-tslint-plugin']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-css', 'coc-tslint-plugin', 'coc-prettier', 'coc-eslint']
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -236,6 +213,25 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
+
+" (coc-prettier) Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+" setup prettier
+" https://github.com/neoclide/coc-prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+nmap <leader>p :CocCommand prettier.formatFile<cr>
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
